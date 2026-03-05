@@ -145,17 +145,17 @@ h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;font-weight:700;line-height:
 .placeholder-12{background:linear-gradient(135deg,#00b09b,#96c93d)}
 
 /* ===== IMAGE ANIMATIONS ===== */
-.card-img img{animation:kenburns 20s ease-in-out infinite alternate;transform-origin:center 80%;will-change:transform;object-position:center 80%}
+.card-img img{animation:kenburns 20s ease-in-out infinite alternate;transform-origin:center center;will-change:transform}
 @keyframes kenburns{
-  0%{transform:scale(1)}
-  100%{transform:scale(1.15)}
+  0%{transform:scale(1.08) translate(0,0)}
+  100%{transform:scale(1.18) translate(-3%,-2%)}
 }
 .card:hover .card-img img{animation:none;transform:scale(1.25);transition:transform .5s ease}
 .modal-hero{overflow:hidden}
 .modal-hero.animate{animation:heroDrift 25s ease-in-out infinite alternate}
 @keyframes heroDrift{
-  0%{background-position:50% 35%}
-  100%{background-position:50% 65%}
+  0%{background-position:50% 80%}
+  100%{background-position:50% 50%}
 }
 </style>
 </head>
@@ -660,7 +660,7 @@ function openModal(c){
   document.getElementById('modalHistory').textContent=c.history;
   document.getElementById('modalWhy').textContent=c.why;
   const heroEl=document.getElementById('modalHero');
-  heroEl.style.background=`url('${c.modalImage}') center/cover no-repeat`;
+  heroEl.style.background=`url('${c.modalImage}') center 80%/cover no-repeat`;
   heroEl.classList.remove('animate');
   void heroEl.offsetWidth;
   heroEl.classList.add('animate');
